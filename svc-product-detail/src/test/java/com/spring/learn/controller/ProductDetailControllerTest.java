@@ -13,8 +13,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+//This annotation will use spring testing framework instead of default Junit
 @RunWith(SpringRunner.class)
+//This annotation will provide spring application context
 @SpringBootTest
+//This annotation is used for web application to start a server
 @AutoConfigureMockMvc
 public class ProductDetailControllerTest {
 
