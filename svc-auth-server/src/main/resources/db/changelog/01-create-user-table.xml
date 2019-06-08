@@ -8,15 +8,64 @@
 	<changeSet id="1.0" author="sharma">
 		<createTable tableName="user"
 			remarks="User table to save user detail">
+
 			<column name="id" type="int">
-				<constraints nullable="false" primaryKey="true" />
+				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="username" type="varchar(100)">
+			<column name="first_name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="last_name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="user_name" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
 			<column name="password" type="varchar(200)">
 				<constraints nullable="false" />
 			</column>
+			<column name="enabled" type="char(1)">
+				<constraints nullable="false" />
+			</column>
+			<column name="token_expired" type="char(1)">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet id="1.1" author="sharma">
+		<createTable tableName="role"
+			remarks="Role table to save role detail">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet id="1.2" author="sharma">
+		<createTable tableName="privilege"
+			remarks="Role table to save role detail">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet id="1.3" author="sharma">
+		<createTable tableName="users_roles"
+			remarks="Mapping table for user and role id">
+			<column name="user_id" type="int" />
+			<column name="role_id" type="int" />
+		</createTable>
+	</changeSet>
+	<changeSet id="1.4" author="sharma">
+		<createTable tableName="roles_privileges"
+			remarks="Mapping table for role and privilege id">
+			<column name="role_id" type="int" />
+			<column name="privilege_id" type="int" />
 		</createTable>
 	</changeSet>
 </databaseChangeLog>
